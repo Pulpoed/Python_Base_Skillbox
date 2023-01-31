@@ -100,8 +100,8 @@ class Human:
         return True
 
     def zoo_shopping(self):
-        self.house.cat_food += 30
-        self.house.money -= 30
+        self.house.cat_food += 50
+        self.house.money -= 50
         self.fullness -= 10
         print('{} купил еды коту'.format(self.name))
 
@@ -154,7 +154,7 @@ class Wife(Human):
                 self.eat()
             elif self.happiness <= 20:
                 self.buy_fur_coat()
-            elif self.house.food < 100:
+            elif self.house.food < 200:
                 self.shopping()
             elif self.house.cat_food <= 10:
                 self.zoo_shopping()
@@ -172,8 +172,8 @@ class Wife(Human):
     def shopping(self):
         if self.house.money >= 80:
             self.fullness -= 10
-            self.house.money -= 80
-            self.house.food += 80
+            self.house.money -= 100
+            self.house.food += 100
             print('{} сходила за продуктами'.format(self.name))
         else:
             print('На продукты не хватает денег....'.format(self.name))
@@ -349,7 +349,7 @@ def finish_sim(house):
     exit()
 
 
-simulation(salary=150)
+simulation(salary=500)
 
 # Усложненное задание (делать по желанию)
 #
