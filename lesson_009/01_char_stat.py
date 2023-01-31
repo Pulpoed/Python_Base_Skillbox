@@ -28,14 +28,15 @@ from pprint import pprint
 # cp1251
 class Lists:
 
-    def __init__(self, filename):
+    def __init__(self, filename, encoding):
         self.filename = filename
+        self.encoding = encoding
         self.stats = {}
         self.count_list = []
         self.char_list = []
 
     def make_lists(self):
-        with open(self.filename, mode='r', encoding='cp1251') as file:
+        with open(self.filename, mode='r', encoding=self.encoding) as file:
             for line in file:
                 for char in line:
                     if char.isalpha():
@@ -51,9 +52,9 @@ class Lists:
             self.char_list.append(char)
 
 
-voyna_i_mir = Lists('voyna-i-mir.txt')
-voyna_i_mir.make_lists()
-pprint(voyna_i_mir.count_list)
+count_char = Lists(filename='verific_countchar.txt', encoding='utf8')
+count_char.make_lists()
+pprint(count_char.count_list)
 
 
 # После выполнения первого этапа нужно сделать упорядочивание статистики
