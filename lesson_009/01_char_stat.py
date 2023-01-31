@@ -35,7 +35,7 @@ class Lists:
         self.char_list = []
 
     def make_lists(self):
-        with open(self.filename, mode='r', encoding='cp1251') as file:
+        with open(self.filename, mode='r', encoding='utf8') as file:
             for line in file:
                 for char in line:
                     if char.isalpha():
@@ -51,9 +51,9 @@ class Lists:
             self.char_list.append(char)
 
 
-voyna_i_mir = Lists('voyna-i-mir.txt')
-voyna_i_mir.make_lists()
-pprint(voyna_i_mir.count_list)
+count_char = Lists('verific_countchar.txt')
+count_char.make_lists()
+pprint(count_char.stats)
 
 
 # После выполнения первого этапа нужно сделать упорядочивание статистики
