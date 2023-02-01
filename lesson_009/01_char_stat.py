@@ -34,6 +34,7 @@ class Lists:
         self.stats = {}
         self.count_list = []
         self.char_list = []
+        self.char_total = 0
 
     def make_lists(self):
         with open(self.filename, mode='r', encoding=self.encoding) as file:
@@ -44,6 +45,7 @@ class Lists:
                             self.stats[char] += 1
                         else:
                             self.stats[char] = 1
+                        self.char_total += 1
                     else:
                         pass
 
@@ -57,8 +59,28 @@ class Lists:
 
 count_char = Lists(filename='voyna-i-mir.txt', encoding='cp1251')
 count_char.make_lists()
-pprint(count_char.char_list)
 
+column_width = 15
+
+print(f'+{"+" :-^{column_width * 2 + 2}}+')
+print(f'|{"Буква":^{column_width}}|',
+      f'{"Частота":^{column_width}}|')
+print(f'+{"+" :-^{column_width * 2 + 2}}+')
+
+char_ascend = sorted(count_char.stats.keys())
+char_decsend = sorted(count_char.stats.keys(), reverse=True)
+count_ascend = sorted(count_char.stats.values())
+count_decsend = sorted(count_char.stats.values(), reverse=True)
+
+for char in char_ascend:
+    print(f'|{char:^{column_width}}|',
+          f'{count_char.stats.get(char):^{column_width}}|')
+
+
+print(f'+{"+" :-^{column_width * 2 + 2}}+')
+print(f'|{"Итого":^{column_width}}|',
+      f'{count_char.char_total:^{column_width}}|')
+print(f'+{"+" :-^{column_width * 2 + 2}}+')
 
 # После выполнения первого этапа нужно сделать упорядочивание статистики
 #  - по частоте по возрастанию
