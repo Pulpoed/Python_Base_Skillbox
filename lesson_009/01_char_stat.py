@@ -52,9 +52,12 @@ class Lists:
             self.char_list.append(char)
 
 
-count_char = Lists(filename='verific_countchar.txt', encoding='utf8')
+# форматирование
+
+
+count_char = Lists(filename='voyna-i-mir.txt', encoding='cp1251')
 count_char.make_lists()
-pprint(count_char.count_list)
+pprint(count_char.char_list)
 
 
 # После выполнения первого этапа нужно сделать упорядочивание статистики
