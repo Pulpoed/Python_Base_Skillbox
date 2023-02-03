@@ -66,51 +66,61 @@ class DictSorting(RawDict):
         if method == 1:
             print("Выбран метод символы по возрастанию")
             self.list_by_sorting_criteria = sorted(self.stats_chars_qnt.keys())
+            for char in self.list_by_sorting_criteria:
+                self.sorted_dict[char] = self.stats_chars_qnt[char]
+
         elif method == 2:
             print("Выбран метод символы по убыванию")
             self.list_by_sorting_criteria = sorted(self.stats_chars_qnt.keys(), reverse=True)
+            for char in self.list_by_sorting_criteria:
+                self.sorted_dict[char] = self.stats_chars_qnt[char]
+
         elif method == 3:
             print("Выбран метод количество по возрастанию")
             self.list_by_sorting_criteria = sorted(self.stats_qnt_chars.keys())
+            for qnt in self.list_by_sorting_criteria:
+                self.sorted_dict[qnt] = self.stats_qnt_chars[qnt]
+
         elif method == 4:
             print("Выбран метод количество по убыванию")
             self.list_by_sorting_criteria = sorted(self.stats_qnt_chars.keys(), reverse=True)
+            for qnt in self.list_by_sorting_criteria:
+                self.sorted_dict[qnt] = self.stats_qnt_chars[qnt]
         else:
             print("Некорректный ввод")
             self.sorting()
 
 
-# форматирование
+class Table:
+    def __init__(self, dictionary, column_width, first_col_head, second_col_head):
+        self.column_width = column_width
+        self.first_col_head = first_col_head
+        self.second_col_head = second_col_head
+        self.sum = 0
+        self.dictionary = dictionary
+
+    def print_table(self):
+        print(f'+{"+" :-^{self.column_width * 2 + 2}}+')
+        print(f'|{self.first_col_head:^{self.column_width}}|',
+              f'{self.second_col_head:^{self.column_width}}|')
+        print(f'+{"+" :-^{self.column_width * 2 + 2}}+')
+
+        for line in self.dictionary:
+            print(f'|{line:^{self.column_width}}|',
+                  f'{self.dictionary.get(line):^{self.column_width}}|')
+
+        print(f'+{"+" :-^{self.column_width * 2 + 2}}+')
+        print(f'|{"Итого":^{self.column_width}}|',
+              f'{"1488 плейсхолдер":^{self.column_width}}|')
+        print(f'+{"+" :-^{self.column_width * 2 + 2}}+')
 
 
-count_char = RawDict(filename='voyna-i-mir.txt', encoding='cp1251')
-count_char.make_dicts()
+war_and_peace_stats = DictSorting(filename='voyna-i-mir.txt', encoding='cp1251')
+war_and_peace_stats.sorting()
 
-# верхний блок таблицы
-column_width = 15
-print(f'+{"+" :-^{column_width * 2 + 2}}+')
-print(f'|{"Буква":^{column_width}}|',
-      f'{"Частота":^{column_width}}|')
-print(f'+{"+" :-^{column_width * 2 + 2}}+')
+wp_table = Table(war_and_peace_stats.sorted_dict, 15, "символ", "число")
+wp_table.print_table()
 
-char_ascend = sorted(count_char.stats_chars_qnt.keys())
-char_descend = sorted(count_char.stats_chars_qnt.keys(), reverse=True)
-num_ascend = sorted(count_char.stats_qnt_chars.keys())
-num_descend = sorted(count_char.stats_qnt_chars.keys(), reverse=True)
-
-# for char in char_descend:  # работает сортировка по символам в обе стороны
-#     print(f'|{char:^{column_width}}|',
-#           f'{count_char.stats_chars_qnt.get(char):^{column_width}}|')
-
-for qnt in num_descend:  # работает сортировка по количеству в обе стороны
-    print(f'|{count_char.stats_qnt_chars.get(qnt):^{column_width}}|',
-          f'{qnt:^{column_width}}|')
-
-# нижний блок таблицы
-print(f'+{"+" :-^{column_width * 2 + 2}}+')
-print(f'|{"Итого":^{column_width}}|',
-      f'{count_char.char_total:^{column_width}}|')
-print(f'+{"+" :-^{column_width * 2 + 2}}+')
 
 # После выполнения первого этапа нужно сделать упорядочивание статистики
 #  - по частоте по возрастанию
