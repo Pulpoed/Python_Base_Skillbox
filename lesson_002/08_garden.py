@@ -15,10 +15,10 @@ garden_set = {garden[0], garden[1], garden[2], garden[3], garden[4], garden[5], 
 meadow_set = {meadow[0], meadow[1], meadow[2], meadow[3], meadow[4], meadow[5], meadow[6]}
 
 # выведите на консоль все виды цветов
-print('все виды цветов', garden_set | meadow_set)
+print('все виды цветов', garden_set|meadow_set)
 
 # выведите на консоль те, которые растут и там и там
-print('растут и там и там', garden_set & meadow_set)
+print('растут и там и там', garden_set&meadow_set)
 
 # выведите на консоль те, которые растут в саду, но не растут на лугу
 print('растут в саду, но не растут на лугу', garden_set - meadow_set)

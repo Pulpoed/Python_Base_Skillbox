@@ -100,7 +100,6 @@ print(bytearray(b'hello'))
 print(bytearray('привет', encoding='utf-8'))
 print(bytearray('привет'.encode(encoding='utf-8')))
 
-
 # для преобразования байтов в строку и обратно есть две функции
 
 # строка в байты:
@@ -122,5 +121,3 @@ print(ss)
 # -*- coding: utf-8 -*-
 # если такого комментария нет - то предполагается UTF-8
 # https://docs.python.org/3/reference/lexical_analysis.html#encoding-declarations
-
-

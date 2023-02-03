@@ -70,7 +70,7 @@ brick_list = [brick_x, brick_y, brick_z]
 brick_x1 = sorted(brick_list)[0]
 brick_y1 = sorted(brick_list)[1]
 
-#потом решаем задачу так же как с листом бумаги в конверте
+# потом решаем задачу так же как с листом бумаги в конверте
 if brick_x1 < brick_y1:
     brick_z1 = brick_x1
     brick_x1 = brick_y1

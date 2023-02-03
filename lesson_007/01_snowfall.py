@@ -31,7 +31,7 @@ class Snowflake:
                      color=color,
                      factor_a=self.factor_a,
                      factor_b=self.factor_b,
-                     factor_c=self.factor_c,)
+                     factor_c=self.factor_c, )
 
     def move(self):
         self.y -= sd.random_number(2, 5)
@@ -56,7 +56,6 @@ flakes_count = 30
 for i in range(flakes_count):
     snowfall[i] = Snowflake()
 
-
 while True:
     for num, flake in snowfall.items():
         sd.start_drawing()
@@ -64,13 +63,12 @@ while True:
         flake.move()
         flake.draw()
         if flake.cant_fall() is True:
-            flake.y = flake.y+700
+            flake.y = flake.y + 700
             flake.x = flake.x + sd.random_number(-400, +400)
         sd.finish_drawing()
         sd.sleep(0.0005)
     if sd.user_want_exit():
         break
-
 
 # while True:
 #     for flake in flakes:

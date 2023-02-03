@@ -24,6 +24,3 @@ folks_final.extend(soviet_h2_r1.folks)
 folks_final.extend(soviet_h2_r2.folks)
 
 print('На районе живут: ' + ', '.join(folks_final))
-
-
-
