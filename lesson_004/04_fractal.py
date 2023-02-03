@@ -38,8 +38,8 @@ def draw_branches(start, angle, length):
     b_init = sd.get_vector(start, angle, length)
     b_init.draw()
     b_next_point = b_init.end_point
-    draw_branches(b_next_point, angle + (30*coef_angle*0.1), length * 0.75*coef_length * 0.1)
-    draw_branches(b_next_point, angle - (30*coef_angle*0.1), length * 0.75*coef_length * 0.1)
+    draw_branches(b_next_point, angle + (30 * coef_angle * 0.1), length * 0.75 * coef_length * 0.1)
+    draw_branches(b_next_point, angle - (30 * coef_angle * 0.1), length * 0.75 * coef_length * 0.1)
 
 
 point = sd.get_point(500, -100)

@@ -55,7 +55,6 @@ count_char = Lists('verific_countchar.txt')
 count_char.make_lists()
 pprint(count_char.stats)
 
-
 # После выполнения первого этапа нужно сделать упорядочивание статистики
 #  - по частоте по возрастанию
 #  - по алфавиту по возрастанию

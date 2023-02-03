@@ -11,7 +11,6 @@
 
 educational_grant, expenses = 10000, 12000
 
-
 month = 0
 ask = 0
 while month < 10:

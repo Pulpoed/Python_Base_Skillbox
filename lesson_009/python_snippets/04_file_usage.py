@@ -9,7 +9,6 @@ for line in file:  # если файл огромный - будет читат�
     print(line)
 file.close()
 
-
 # еще вариант
 file_name = 'pushkin.txt'
 file = open(file_name, mode='r', encoding='utf8')

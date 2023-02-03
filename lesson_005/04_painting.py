@@ -19,6 +19,7 @@
 # Приправить своей фантазией по вкусу (коты? коровы? люди? трактор? что придумается)
 
 import simple_draw as sd
+
 from painting_package import rainbow, wall, tree
 
 sd.resolution = (1200, 700)
