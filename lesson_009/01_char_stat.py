@@ -26,18 +26,16 @@ from pprint import pprint
 # Делать сразу на классах.
 
 # cp1251
-class Lists:
+class RawDict:
 
     def __init__(self, filename, encoding):
         self.filename = filename
         self.encoding = encoding
         self.stats_chars_qnt = {}
         self.stats_qnt_chars = {}
-        # self.count_list = []
-        # self.char_list = []
         self.char_total = 0
 
-    def make_lists(self):
+    def make_dicts(self):
         with open(self.filename, mode='r', encoding=self.encoding) as file:
             for line in file:
                 for char in line:
@@ -48,19 +46,45 @@ class Lists:
                             self.stats_chars_qnt[char.lower()] = 1
                         self.char_total += 1
 
-        for k, v in self.stats_chars_qnt.items():#отзеркалил словарь
+        for k, v in self.stats_chars_qnt.items():  # отзеркалил словарь
             self.stats_qnt_chars[v] = k
 
-        # for char, count in self.stats_chars_qnt.items():#не оч нужно, удалить
-        #     self.count_list.append(count)
-        #     self.char_list.append(char)
+
+class DictSorting(RawDict):
+
+    def __init__(self, filename, encoding):
+        super().__init__(filename, encoding)
+        self.make_dicts()
+        self.list_by_sorting_criteria = []
+        self.sorted_dict = {}
+
+    def sorting(self):
+        method = int(input("1: символы по возрастанию,\n"
+                           "2: символы по убыванию,\n"
+                           "3: количество по возрастанию,\n"
+                           "4: количество по убиванию\n"))
+        if method == 1:
+            print("Выбран метод символы по возрастанию")
+            self.list_by_sorting_criteria = sorted(self.stats_chars_qnt.keys())
+        elif method == 2:
+            print("Выбран метод символы по убыванию")
+            self.list_by_sorting_criteria = sorted(self.stats_chars_qnt.keys(), reverse=True)
+        elif method == 3:
+            print("Выбран метод количество по возрастанию")
+            self.list_by_sorting_criteria = sorted(self.stats_qnt_chars.keys())
+        elif method == 4:
+            print("Выбран метод количество по убыванию")
+            self.list_by_sorting_criteria = sorted(self.stats_qnt_chars.keys(), reverse=True)
+        else:
+            print("Некорректный ввод")
+            self.sorting()
 
 
 # форматирование
 
 
-count_char = Lists(filename='voyna-i-mir.txt', encoding='cp1251')
-count_char.make_lists()
+count_char = RawDict(filename='voyna-i-mir.txt', encoding='cp1251')
+count_char.make_dicts()
 
 # верхний блок таблицы
 column_width = 15
@@ -87,7 +111,6 @@ print(f'+{"+" :-^{column_width * 2 + 2}}+')
 print(f'|{"Итого":^{column_width}}|',
       f'{count_char.char_total:^{column_width}}|')
 print(f'+{"+" :-^{column_width * 2 + 2}}+')
-
 
 # После выполнения первого этапа нужно сделать упорядочивание статистики
 #  - по частоте по возрастанию
