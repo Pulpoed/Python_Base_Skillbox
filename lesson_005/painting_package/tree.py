@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import simple_draw as sd
 
+
 # sd.resolution = (1200, 700)
 
 
@@ -15,9 +16,9 @@ def draw_tree(x, y, start_branch_length):
         b_next_point = b_init.end_point
         draw_branch(b_next_point, angle + (30 * coef_angle * 0.1), length * 0.7 * coef_length * 0.1)
         draw_branch(b_next_point, angle - (30 * coef_angle * 0.1), length * 0.7 * coef_length * 0.1)
+
     point = sd.get_point(x, y)
     draw_branch(point, 90, start_branch_length)
-
 
 # draw_tree(300, 200, 60)
 #

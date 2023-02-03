@@ -121,7 +121,6 @@ war_and_peace_stats.sorting()
 wp_table = Table(war_and_peace_stats.sorted_dict, 15, "символ", "число")
 wp_table.print_table()
 
-
 # После выполнения первого этапа нужно сделать упорядочивание статистики
 #  - по частоте по возрастанию
 #  - по алфавиту по возрастанию

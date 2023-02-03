@@ -23,7 +23,6 @@ file_content = file.read()
 file.close()
 pprint(file_content)
 
-
 # С русскими символами все не так просто
 file_name = 'pushkin.txt'
 file = open(file_name, mode='rb')
@@ -38,7 +37,6 @@ file = open(file_name, mode='r')  # mode (режим): чтение символ
 file_content = file.read()
 file.close()
 pprint(file_content)
-
 
 # но можно указать кодировку
 file_name = 'pushkin_cp1251.txt'

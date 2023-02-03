@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from termcolor import cprint
 from random import randint
+from termcolor import cprint
 
 
 ######################################################## Часть первая
@@ -185,7 +185,7 @@ for day in range(365):
     print(sweet_home)
 print('Всего куплено шуб', masha.fur_coats)
 print('Всего заработано денег', serge.capital)
-print('Всего съедено еды', serge.total_food+masha.total_food)
+print('Всего съедено еды', serge.total_food + masha.total_food)
 
 
 # TODO после реализации первой части - отдать на проверку учителю

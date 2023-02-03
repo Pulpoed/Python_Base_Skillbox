@@ -40,7 +40,7 @@ def snowfall():
         x_gen, y_gen = x_move, y_move
 
 
-for x in range (1,20):
+for x in range(1, 20):
     snowfall()
 sd.pause()
 
