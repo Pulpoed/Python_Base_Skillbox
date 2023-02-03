@@ -32,7 +32,6 @@ package_1.subpackage.module_2.function2()
 from package_1.subpackage import module_2
 module_2.function2()
 
-
 ###
 # наиболее общеупотребительные способы
 from package_1.module_1 import function1
@@ -52,7 +51,6 @@ function4()
 # см package_1.subpackage.module_4
 from package_1.subpackage.module_4 import function5
 function5()
-
 
 ###
 # Вот пример большой библиотеки - пакет фреймворка Django (немного урезанный, только пакеты)

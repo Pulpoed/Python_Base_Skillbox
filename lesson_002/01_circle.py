@@ -35,7 +35,7 @@ point_2 = (30, 30)
 # Или False, если точка лежит вовне круга.
 
 lenght_t_z_2 = ((point_2[0] ** 2) + (point_2[1] ** 2)) ** 0.5
-print (lenght_t_z_2 < radius)
+print(lenght_t_z_2 < radius)
 
 # Пример вывода на консоль:
 #

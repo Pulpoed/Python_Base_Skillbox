@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import random
 # (определение функций)
 import simple_draw as sd
-import random
 
 sd.resolution = (700, 700)
 

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import simple_draw as sd
+
 import snowfall_gen as sg
 
 # На основе кода из lesson_004/05_snowfall.py

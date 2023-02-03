@@ -3,6 +3,7 @@
 from random import randint
 from termcolor import cprint
 
+
 # Реализуем модель доставки грузов
 
 # Дорога - хранит расстояния между обьектами
@@ -242,7 +243,6 @@ while piter.content < TOTAL_CARGO:
     cprint(loader_2, color='cyan')
     cprint(moscow, color='cyan')
     cprint(piter, color='cyan')
-
 
 cprint('Всего затрачено топлива {}'.format(Vehicle.total_fuel), color='yellow')
 cprint('Общий простой грузовиков {}'.format(Truck.dead_time), color='yellow')

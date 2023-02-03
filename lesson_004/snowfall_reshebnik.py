@@ -22,8 +22,8 @@ for i in range(snowflakes_count):
     snowflakes[i] = {'length': sd.random_number(snowflake_size['min'], snowflake_size['max']),
                      'x': sd.random_number(0, sd.resolution[0]),
                      'y': y,
-                     'factor_a': sd.random_number(1, 10)/10,
-                     'factor_b': sd.random_number(1, 10)/10,
+                     'factor_a': sd.random_number(1, 10) / 10,
+                     'factor_b': sd.random_number(1, 10) / 10,
                      'factor_c': sd.random_number(1, 120)
                      }
 

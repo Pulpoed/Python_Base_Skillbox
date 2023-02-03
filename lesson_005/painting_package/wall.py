@@ -1,5 +1,6 @@
 import simple_draw as sd
 
+
 # sd.resolution = (100, 200)
 
 
@@ -19,7 +20,6 @@ def draw_wall(x_left_bottom,
                 if (x - row) < 0 or (y - row) > x_right_top - 100:
                     break
                 sd.rectangle(left_bottom=start_point, right_top=end_point, color=sd.COLOR_ORANGE, width=1)
-
 
 # draw_wall(x_left_bottom=300,
 #           y_left_bottom=200,

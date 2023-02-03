@@ -11,7 +11,6 @@ for i in range(lines_qnt):
                 'e_x': sd.random_number(0, sd.resolution[0]),
                 'e_y': sd.random_number(0, sd.resolution[1])}
 
-
 while True:
     sd.start_drawing()
     for line_num, line_coord in lines.items():

@@ -25,6 +25,7 @@ def generate(snowflake_count):
                          'size': sd.random_number(5, 30)}
     return snowflakes
 
+
 # generate(2)
 # print(snowflakes)
 # del snowflakes[1]

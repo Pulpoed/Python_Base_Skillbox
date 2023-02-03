@@ -25,8 +25,7 @@ print('Вывод числа {0:d}'.format(a))
 # сколько символов выводить - указываем после двоеточия (дополняется пробелами сначала)
 print('Вывод числа "{0:3d}" '.format(a))
 for x in range(1, 11):
-    print('{0:2d} {1:3d} {2:4d} '.format(x, x**2, x**3))
-
+    print('{0:2d} {1:3d} {2:4d} '.format(x, x ** 2, x ** 3))
 
 # вывод дробного числа с заданной точностью
 # :8.4f - 8 знаков всего, 4 знака после запятой, дробное число
@@ -34,7 +33,6 @@ import math
 print('Вывод числа "{0:5f}" '.format(math.pi))
 print('Вывод числа "{0:5.2f}" '.format(math.pi))
 print('Вывод числа "{0:8.2f}" '.format(math.pi))
-
 
 # именованные аргументы
 print('Этот {food} — {adjective}.'.format(
@@ -48,7 +46,6 @@ print('История о {0}е, {1}е, и {other}е.'.format('Билл', 'Ман
 phones = {'Bill': 4127, 'Jameson': 4098, 'Abraham': 7678}
 for name, phone in phones.items():
     print('{name:10} ==> {phone:10d}'.format(name=name, phone=phone))
-
 
 # выравнивания строк
 print('|{txt:<30}|'.format(txt='left aligned'))
@@ -83,6 +80,8 @@ print(f"Значение словаря - {my_dict['a']:10d}")
 print('Значение переменной var_1 - {}'.format(var_1))
 # проще использовать
 print(f'Значение переменной var_1 - {var_1}')
+
+
 # не надо усложнять и заставлять читающего код читать сложные перл-подобные выражение при выводе
 
 
@@ -101,11 +100,9 @@ f1()
 file_name = 'out.txt'
 var_1 = 42
 with open(file_name, mode='w') as file:
-    file.write('Вывод числа %d' % (34, ))
+    file.write('Вывод числа %d' % (34,))
     file.write('\n')
     file.write('Мы — те {}, что говорят "{}!"'.format('рыцари', 'Ха'))
     file.write('\n')
     file.write(f'Значение переменной var_1 - {var_1:10}')
     file.write('\n')
-
-

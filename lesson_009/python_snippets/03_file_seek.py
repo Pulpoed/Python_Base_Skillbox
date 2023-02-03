@@ -64,5 +64,3 @@ pprint(file.truncate(size=None))
 pprint(file.flush())  # обычно файл буферезирован, флаш записвыает весь буфер на диск
 
 # Файлы по сути являются потоками байтов - streams. https://docs.python.org/3/library/io.html
-
-
