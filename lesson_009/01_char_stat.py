@@ -76,13 +76,13 @@ class DictSorting(RawDict):
             print("Выбран метод количество по возрастанию")
             self.list_by_sorting_criteria = sorted(self.stats_qnt_chars.keys())
             for qnt in self.list_by_sorting_criteria:
-                self.sorted_dict[qnt] = self.stats_qnt_chars[qnt]
+                self.sorted_dict[self.stats_qnt_chars[qnt]] = qnt
 
         elif method == 4:
             print("Выбран метод количество по убыванию")
             self.list_by_sorting_criteria = sorted(self.stats_qnt_chars.keys(), reverse=True)
             for qnt in self.list_by_sorting_criteria:
-                self.sorted_dict[qnt] = self.stats_qnt_chars[qnt]
+                self.sorted_dict[self.stats_qnt_chars[qnt]] = qnt
         else:
             print("Некорректный ввод")
             self.sorting()
@@ -115,8 +115,11 @@ class Table:
 war_and_peace_stats = DictSorting(filename='voyna-i-mir.txt', encoding='cp1251')
 war_and_peace_stats.sorting()
 
-wp_table = Table(war_and_peace_stats.sorted_dict, 15, "символ", "число")
-wp_table.print_table()
+print(war_and_peace_stats.sorted_dict)
+print(war_and_peace_stats.list_by_sorting_criteria)
+#
+# wp_table = Table(war_and_peace_stats.sorted_dict, 15, "символ", "число")
+# wp_table.print_table()
 
 # После выполнения первого этапа нужно сделать упорядочивание статистики
 #  - по частоте по возрастанию
