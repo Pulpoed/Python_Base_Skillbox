@@ -88,7 +88,7 @@ class DictSorting(RawDict):
             self.sorting()
 
 
-class Table:
+class TablePrinter:
     def __init__(self, dictionary, column_width, first_col_head, second_col_head):
         self.column_width = column_width
         self.first_col_head = first_col_head
@@ -97,6 +97,8 @@ class Table:
         self.dictionary = dictionary
 
     def print_table(self):
+        for count in self.dictionary:
+            self.sum += self.dictionary[count]
         print(f'+{"+" :-^{self.column_width * 2 + 2}}+')
         print(f'|{self.first_col_head:^{self.column_width}}|',
               f'{self.second_col_head:^{self.column_width}}|')
@@ -108,18 +110,15 @@ class Table:
 
         print(f'+{"+" :-^{self.column_width * 2 + 2}}+')
         print(f'|{"Итого":^{self.column_width}}|',
-              f'{"1488 плейсхолдер":^{self.column_width}}|')
+              f'{self.sum:^{self.column_width}}|')
         print(f'+{"+" :-^{self.column_width * 2 + 2}}+')
 
 
 war_and_peace_stats = DictSorting(filename='voyna-i-mir.txt', encoding='cp1251')
 war_and_peace_stats.sorting()
-
-print(war_and_peace_stats.sorted_dict)
-print(war_and_peace_stats.list_by_sorting_criteria)
 #
-# wp_table = Table(war_and_peace_stats.sorted_dict, 15, "символ", "число")
-# wp_table.print_table()
+wp_table = TablePrinter(war_and_peace_stats.sorted_dict, 15, "символ", "число")
+wp_table.print_table()
 
 # После выполнения первого этапа нужно сделать упорядочивание статистики
 #  - по частоте по возрастанию
