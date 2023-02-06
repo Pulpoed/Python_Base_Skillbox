@@ -22,7 +22,6 @@
 # Требования к коду: он должен быть готовым к расширению функциональности.
 # Делать сразу на классах.
 
-# cp1251
 class RawDict:
 
     def __init__(self, filename, encoding):
@@ -30,7 +29,6 @@ class RawDict:
         self.encoding = encoding
         self.stats_chars_qnt = {}
         self.stats_qnt_chars = {}
-        self.char_total = 0
 
     def make_dicts(self):
         with open(self.filename, mode='r', encoding=self.encoding) as file:
@@ -41,7 +39,6 @@ class RawDict:
                             self.stats_chars_qnt[char.lower()] += 1
                         else:
                             self.stats_chars_qnt[char.lower()] = 1
-                        self.char_total += 1
 
         for k, v in self.stats_chars_qnt.items():  # отзеркалил словарь
             self.stats_qnt_chars[v] = k
@@ -116,7 +113,7 @@ class TablePrinter:
 
 war_and_peace_stats = DictSorting(filename='voyna-i-mir.txt', encoding='cp1251')
 war_and_peace_stats.sorting()
-#
+
 wp_table = TablePrinter(war_and_peace_stats.sorted_dict, 15, "символ", "число")
 wp_table.print_table()
 
