@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-
+from datetime import datetime
+from pprint import pprint
 # Имеется файл events.txt вида:
 #
 # [2018-05-17 01:55:52.665804] NOK
@@ -19,8 +20,22 @@
 # Входные параметры: файл для анализа, файл результата
 # Требования к коду: он должен быть готовым к расширению функциональности. Делать сразу на классах.
 
-# TODO здесь ваш код
+#_________
 
+parser = []
+log = open('events.txt', mode='r')
+for line in log:
+    if 'NOK' in line[29:32]:
+        line_cut = line[1:17]
+        datetime_object = datetime.strptime(line_cut, '%Y-%m-%d %H:%M')
+        parser.append(datetime_object)
+log.close()
+
+# if datetime_object in parser:
+#     parser[datetime_object] += 1
+# else:
+#     parser[datetime_object] = 1
+#___________
 # После выполнения первого этапа нужно сделать группировку событий
 #  - по часам
 #  - по месяцу
