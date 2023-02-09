@@ -3,6 +3,8 @@
 import os
 import shutil
 import time
+import pprint
+
 
 # Нужно написать скрипт для упорядочивания фотографий (вообще любых файлов)
 # Скрипт должен разложить файлы из одной папки по годам и месяцам в другую.
@@ -36,7 +38,24 @@ import time
 # Чтение документации/гугла по функциям - приветствуется. Как и поиск альтернативных вариантов :)
 # Требования к коду: он должен быть готовым к расширению функциональности. Делать сразу на классах.
 
-# TODO здесь ваш код
+class FileSorter:
+
+    def __init__(self, source, destin):
+        self.source = source
+        self.destin = destin
+
+    def sorting(self):
+        for dirpath, dirnames, filenames in os.walk(self.source):
+            for file in filenames:
+                full_file_path = os.path.join(dirpath, file)
+                secs = os.path.getmtime(full_file_path)
+                file_time = time.gmtime(secs)
+                os.makedirs(name=os.path.join(self.destin, str(file_time[0]), str(file_time[1])), exist_ok=True)
+                shutil.copy(src=full_file_path, dst=os.path.join(self.destin, str(file_time[0]), str(file_time[1])))
+
+
+class_test = FileSorter(source='icons', destin='icons_by_year')
+class_test.sorting()
 
 # Усложненное задание (делать по желанию)
 # Нужно обрабатывать zip-файл, содержащий фотографии, без предварительного извлечения файлов в папку.
