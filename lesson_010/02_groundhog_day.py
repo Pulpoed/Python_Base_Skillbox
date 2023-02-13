@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import random
 
 # День сурка
 #
@@ -18,7 +19,62 @@
 # базовых встроенных исключений.
 
 ENLIGHTENMENT_CARMA_LEVEL = 777
+carma = 0
 
-# TODO здесь ваш код
+
+class IamGodError(Exception):
+    pass
+
+
+class DrunkError(Exception):
+    pass
+
+
+class CarCrashError(Exception):
+    pass
+
+
+class GluttonyError(Exception):
+    pass
+
+
+class DepressionError(Exception):
+    pass
+
+
+class SuicideError(Exception):
+    pass
+
+
+def one_day():
+    my_exceptions = (IamGodError('Я бог'),
+                     DrunkError('Я напился'),
+                     CarCrashError("Я в аварии"),
+                     GluttonyError("Я обожрался"),
+                     DepressionError("Я в депрессии"),
+                     SuicideError("Я роскомнадзор"))
+    if random.randint(1, 13) == 13:
+        raise random.choice(my_exceptions)
+    return random.randint(1, 7)
+
+
+file_out = 'file_out.txt'
+file = open(file_out, mode='w')
+while True:
+    try:
+        carma += one_day()
+        file.write(str(carma)+'\n')
+        if carma >= ENLIGHTENMENT_CARMA_LEVEL:
+            break
+    except (IamGodError,
+            DrunkError,
+            CarCrashError,
+            GluttonyError,
+            DepressionError,
+            SuicideError) as exc:
+        file.write(f'{exc}, {exc.__class__.__name__}, {exc.args} \n')
+file.write("Цикл завершен")
+file.close()
+
 
 # https://goo.gl/JnsDqu
