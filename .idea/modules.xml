@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Python Base Skillbox NEW.iml" filepath="$PROJECT_DIR$/.idea/Python Base Skillbox NEW.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../stepik decorators/.idea/stepik decorators.iml" filepath="$PROJECT_DIR$/../stepik decorators/.idea/stepik decorators.iml" />
       <module fileurl="file://$PROJECT_DIR$/../udemi 100 days/.idea/udemi 100 days.iml" filepath="$PROJECT_DIR$/../udemi 100 days/.idea/udemi 100 days.iml" />
     </modules>
   </component>
